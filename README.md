@@ -1,8 +1,10 @@
-MC Challenges
+necrophcodr
 =============
   
 Introduction
 ------------
+
+It is my personal website. Not much to say really. Check it out, maybe?
 
 Requirements
 ------------

@@ -1,4 +1,4 @@
-all: mongoose
+all: mongoose/mongoose
 
 mongoose:
 	git clone git://github.com/mastersrp/mongoose.git

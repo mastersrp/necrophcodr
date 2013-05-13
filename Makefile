@@ -1,11 +1,14 @@
 all: mongoose/mongoose
 
+mongoose:
+	git clone git://github.com/mastersrp/mongoose.git
+
 mongoose/mongoose: mongoose/lua/Makefile
 	make -C mongoose linux_lua
 
-mongoose/lua/Makefile:
-	git submodule foreach git submodule init
-	git submodule foreach git submodule update
+mongoose/lua/Makefile: mongoose
+	cd mongoose && git submodule init && git submodule update
+	cd ..;
 
 clean:
 	make -C mongoose/lua clean

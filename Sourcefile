@@ -1,0 +1,13 @@
+deps = {}
+
+pkg = {}
+
+pkg["necrophcodr"] = {
+	configure=function()
+		sh 'bundle install'
+	end,
+	build=function()
+		sh 'make'
+	end
+}
+-- vim: filetype=lua

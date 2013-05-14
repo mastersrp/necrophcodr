@@ -1,0 +1,3 @@
+[submodule "mongoose"]
+	path = mongoose
+	url = git://github.com/mastersrp/mongoose.git

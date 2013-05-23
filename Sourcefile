@@ -18,6 +18,7 @@ pkg["necrophcodr"] = {
 		conf.create( 'DEBUG','n' )
 		conf.create( 'CC', 'gcc' )
 		conf.create( 'AR', 'ar rcu' )
+		os.execute('bundle install')
 	end
 }
 

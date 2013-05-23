@@ -1,13 +1,26 @@
-deps = {}
+require 'io'
 
-pkg = {}
+local deps = {}
 
-pkg["necrophcodr"] = {
-	configure=function()
-		sh 'bundle install'
-	end,
-	build=function()
-		sh 'make'
+deps["mongoose"] = {
+	url="valenok/mongoose",
+	configure=function( root )
+		io.open(root .. '/build.sh','w'):write('#!/bin/bash\nmake linux_lua CFLAGS="-lm -lpthread"\nfind lua-5.2.1 -iname "*.o" -or -iname "*.a" -delete')
+		io.open(root .. '/Tupfile','w'):write(': |> bash build.sh |> mongoose')
 	end
 }
+
+local pkg = {}
+
+pkg["necrophcodr"] = {
+	configure=function( cfg )
+		local conf = cfg[4]
+		conf.create( 'DEBUG','n' )
+		conf.create( 'CC', 'gcc' )
+		conf.create( 'AR', 'ar rcu' )
+	end
+}
+
+return deps,pkg
+
 -- vim: filetype=lua

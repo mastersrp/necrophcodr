@@ -3,7 +3,7 @@ template = {}
 if not template.sets then template.sets = {} end
 
 template.init = function()
-	print( 'HTTP/1.0 200 OK\r\nContent-Type: text/html\r\n\r\n' )
+	mg.write( 'HTTP/1.0 200 OK\r\nContent-Type: text/html\r\n\r\n' )
 end
 
 template.set = function( file )
@@ -13,5 +13,5 @@ template.set = function( file )
 		f:close()
 		template.sets[file] = c
 	end
-	print( template.sets[file] )
+	mg.write( template.sets[file] )
 end
